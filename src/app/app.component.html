@@ -149,6 +149,9 @@
   .social-links a:hover svg path {
     fill: var(--gray-900);
   }
+  .line-through {
+  text-decoration: line-through;
+}
 
   @media screen and (max-width: 650px) {
     .content {
@@ -184,17 +187,25 @@
           { title: 'Important', link: 'https://angular.dev/tools/language-service' },
           { title: 'Raports', link: 'https://angular.dev/tools/devtools' },
         ]; track item.title) {
-          <a
+          <button
             class="pill"
-            [href]="item.link"
+            (click)="item.link"
             target="_self"
             rel="noopener"
           >
             <span>{{ item.title }}</span>
-          </a>
+          </button>
         }
       </div>
       <div class="divider" role="separator" aria-label="Divider"></div>
+      <div class="tasksList">
+        <ul>
+          <li>
+            <p [class.line-through]="tasks[0].done">{{tasks[0].name}}</p>
+          </li>
+        </ul>
+        
+      </div>
       <div class="social-links">
         <a
           href="https://github.com/KamIlI3"
